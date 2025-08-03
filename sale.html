@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGA SALE - StyleHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e293b',
+                        secondary: '#f8fafc',
+                        accent: '#3b82f6',
+                        purple: {
+                            50: '#faf5ff', 100: '#f3e8ff', 200: '#e9d5ff', 300: '#d8b4fe',
+                            400: '#c084fc', 500: '#a855f7', 600: '#9333ea', 700: '#7c3aed',
+                            800: '#6b21a8', 900: '#581c87',
+                        },
+                        pink: {
+                            50: '#fdf2f8', 100: '#fce7f3', 200: '#fbcfe8', 300: '#f9a8d4',
+                            400: '#f472b6', 500: '#ec4899', 600: '#db2777', 700: '#be185d',
+                            800: '#9d174d', 900: '#831843',
+                        },
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.3s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { transform: 'translateY(10px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                        bounceGentle: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-5px)' } },
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900">
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Top Bar -->
+            <div class="bg-gradient-to-r from-red-600 to-pink-600 text-white py-2 text-center text-sm animate-pulse-slow">
+                <span>🔥 MEGA SALE - UP TO 50% OFF! LIMITED TIME ONLY! 🔥</span>
+            </div>
+
+            <!-- Main Header -->
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-3xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
+                        StyleHub
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden lg:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+                    <a href="index.html#men" class="text-gray-700 dark:text-gray-300 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Men</a>
+                    <a href="index.html#women" class="text-gray-700 dark:text-gray-300 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Women</a>
+                    <a href="sale.html" class="text-red-600 hover:text-red-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 font-semibold">SALE</a>
+                </nav>
+
+                <!-- Action Icons -->
+                <div class="flex items-center space-x-3">
+                    <button class="p-2 text-gray-700 dark:text-gray-300 hover:text-red-600 transition-colors" onclick="toggleTheme()">
+                        <span id="theme-icon" class="text-xl">🌙</span>
+                    </button>
+                    <a href="index.html" class="bg-gradient-to-r from-red-600 to-pink-600 text-white px-4 py-2 rounded-lg font-semibold hover:from-red-700 hover:to-pink-700 transition-all duration-200">
+                        Back to Store
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Sale Section -->
+        <section class="relative bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="animate-bounce-gentle">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                        MEGA SALE
+                    </h1>
+                    <div class="text-4xl md:text-6xl font-bold mb-8">
+                        <span class="text-yellow-300">50% OFF</span>
+                    </div>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                        Everything must go! Limited time offer on all premium clothing. 
+                        Don't miss out on these incredible deals!
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="scrollToProducts()" class="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 text-lg">
+                            Shop Now
+                        </button>
+                        <div class="bg-black bg-opacity-30 px-8 py-4 rounded-lg border-2 border-white">
+                            <div class="text-sm">Limited Time</div>
+                            <div class="text-2xl font-bold" id="countdown">24:00:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sale Categories -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Sale Categories
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300">
+                    Explore our discounted collections
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Men's Sale -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-6xl">👔</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Men's Collection</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Up to 50% off on all men's clothing</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-red-600">50% OFF</span>
+                            <button onclick="filterByCategory('men')" class="bg-gradient-to-r from-red-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-red-700 hover:to-pink-700 transition-all duration-200">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Women's Sale -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-pink-400 to-rose-600 flex items-center justify-center">
+                        <span class="text-white text-6xl">👗</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Women's Collection</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Up to 50% off on all women's clothing</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-red-600">50% OFF</span>
+                            <button onclick="filterByCategory('women')" class="bg-gradient-to-r from-red-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-red-700 hover:to-pink-700 transition-all duration-200">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accessories Sale -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-teal-600 flex items-center justify-center">
+                        <span class="text-white text-6xl">👜</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Accessories</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Up to 40% off on all accessories</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-red-600">40% OFF</span>
+                            <button onclick="showAccessories()" class="bg-gradient-to-r from-red-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:from-red-700 hover:to-pink-700 transition-all duration-200">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sale Products -->
+        <section id="sale-products" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Sale Products
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300">
+                    All items marked down for quick sale
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="sale-products-grid">
+                <!-- Sale products will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Special Offers -->
+        <section class="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900 dark:to-pink-900 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                        Special Offers
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Free Shipping -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <div class="text-center">
+                            <span class="text-4xl mb-4 block">🚚</span>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Free Shipping</h3>
+                            <p class="text-gray-600 dark:text-gray-300">On all orders over $30</p>
+                        </div>
+                    </div>
+
+                    <!-- Buy 2 Get 1 Free -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <div class="text-center">
+                            <span class="text-4xl mb-4 block">🎁</span>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Buy 2 Get 1 Free</h3>
+                            <p class="text-gray-600 dark:text-gray-300">On selected items</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-bold mb-4">StyleHub</h3>
+            <p class="text-gray-300 mb-4">Your premier destination for fashion-forward clothing.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="index.html" class="text-gray-300 hover:text-white">Home</a>
+                <a href="index.html#men" class="text-gray-300 hover:text-white">Men</a>
+                <a href="index.html#women" class="text-gray-300 hover:text-white">Women</a>
+                <a href="sale.html" class="text-red-400 hover:text-red-300">Sale</a>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <p class="text-gray-300">© 2024 StyleHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global state
+        let isDarkMode = false;
+
+        // Sale products with discounted prices
+        const saleProducts = [
+            {id: 's1', name: 'Classic White T-Shirt', price: 14.99, originalPrice: 29.99, category: 'men', description: 'Premium cotton classic white t-shirt', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop'},
+            {id: 's2', name: 'Slim Fit Jeans', price: 39.99, originalPrice: 79.99, category: 'men', description: 'Comfortable slim fit jeans with stretch denim', image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=500&fit=crop'},
+            {id: 's3', name: 'Casual Blazer', price: 64.99, originalPrice: 129.99, category: 'men', description: 'Versatile casual blazer perfect for office', image: 'https://images.unsplash.com/photo-1593030761757-71cae45ad0ce?w=400&h=500&fit=crop'},
+            {id: 's4', name: 'Floral Summer Dress', price: 44.99, originalPrice: 89.99, category: 'women', description: 'Beautiful floral summer dress', image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=500&fit=crop'},
+            {id: 's5', name: 'High-Waist Skinny Jeans', price: 44.99, originalPrice: 89.99, category: 'women', description: 'Stylish high-waist skinny jeans', image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&h=500&fit=crop'},
+            {id: 's6', name: 'Silk Blouse', price: 39.99, originalPrice: 79.99, category: 'women', description: 'Elegant silk blouse for professional settings', image: 'https://images.unsplash.com/photo-1564257631407-3deb25e720aa?w=400&h=500&fit=crop'},
+            {id: 's7', name: 'Polo Shirt', price: 24.99, originalPrice: 49.99, category: 'men', description: 'Classic polo shirt with breathable fabric', image: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=400&h=500&fit=crop'},
+            {id: 's8', name: 'Cardigan Sweater', price: 34.99, originalPrice: 69.99, category: 'women', description: 'Soft and warm cardigan sweater', image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&h=500&fit=crop'}
+        ];
+
+        function createSaleProductCard(product) {
+            const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+            
+            return `
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-red-200 dark:border-red-700 hover:border-red-400 dark:hover:border-red-500 transform hover:-translate-y-1 group animate-fade-in">
+                    <div class="relative w-full h-64 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 overflow-hidden">
+                        <img src="${product.image}" alt="${product.name}" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                             onerror="this.parentElement.innerHTML='<div class=\\"w-full h-full bg-gradient-to-br from-red-100 to-pink-100 dark:from-red-900 dark:to-pink-900 flex items-center justify-center\\"><div class=\\"text-center\\"><div class=\\"w-16 h-16 bg-gradient-to-br from-red-400 to-pink-400 rounded-full flex items-center justify-center mx-auto mb-2 animate-bounce-gentle\\"><span class=\\"text-white text-2xl\\">👕</span></div><span class=\\"text-gray-600 dark:text-gray-300 text-sm\\">${product.name}</span></div></div>'">
+                        
+                        <!-- Sale Badge -->
+                        <div class="absolute top-3 left-3 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow-lg animate-pulse">
+                            ${discount}% OFF
+                        </div>
+                        
+                        <!-- Quick Add to Cart -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-red-600 to-pink-600 text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                            <button onclick="addToCart('${product.id}')" class="w-full flex items-center justify-center space-x-2 hover:bg-opacity-100 transition-colors duration-200">
+                                <span>🛒</span>
+                                <span class="text-sm font-medium">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white truncate">${product.name}</h3>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-3">
+                            <span class="text-sm text-gray-500 dark:text-gray-400 line-through">$${product.originalPrice}</span>
+                            <span class="text-lg font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">$${product.price}</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">${product.description}</p>
+                        <button onclick="addToCart('${product.id}')" class="w-full bg-gradient-to-r from-red-600 to-pink-600 text-white py-2 px-4 rounded-lg hover:from-red-700 hover:to-pink-700 transition-all duration-200 shadow-lg hover:shadow-xl">
+                            Add to Cart - Save $${(product.originalPrice - product.price).toFixed(2)}
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-icon').textContent = '☀️';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme-icon').textContent = '🌙';
+            }
+        }
+
+        // Category filter
+        function filterByCategory(category) {
+            const filtered = saleProducts.filter(product => product.category === category);
+            document.getElementById('sale-products-grid').innerHTML = filtered.map(product => createSaleProductCard(product)).join('');
+        }
+
+        // Show accessories (placeholder)
+        function showAccessories() {
+            alert('Accessories section coming soon!');
+        }
+
+        // Scroll to products
+        function scrollToProducts() {
+            document.getElementById('sale-products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Add to cart (placeholder)
+        function addToCart(productId) {
+            alert('Product added to cart! Redirecting to main store...');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        }
+
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            const end = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+            const diff = end - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Load sale products on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const saleProductsGrid = document.getElementById('sale-products-grid');
+            saleProductsGrid.innerHTML = saleProducts.map(product => createSaleProductCard(product)).join('');
+            
+            // Start countdown timer
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+        });
+    </script>
+</body>
+</html>
